@@ -11,6 +11,7 @@ function RetrieveComponents()
 	Chat = exports["mythic-base"]:FetchComponent("Chat")
 	Inventory = exports["mythic-base"]:FetchComponent("Inventory")
 	Objects = exports["mythic-base"]:FetchComponent("Objects")
+	Version = exports["mythic-base"]:FetchComponent("Version")
 end
 
 AddEventHandler("Core:Shared:Ready", function()
@@ -23,6 +24,7 @@ AddEventHandler("Core:Shared:Ready", function()
 		"Chat",
 		"Inventory",
 		"Objects",
+		"Version",
 	}, function(error)
 		if #error > 0 then
 			exports["mythic-base"]:FetchComponent("Logger"):Critical("Objects", "Failed To Load All Dependencies")
@@ -132,6 +134,8 @@ AddEventHandler("Core:Shared:Ready", function()
 				},
 			},
 		}, 1)
+
+		Version:Check('Mythic-Framework/Mythic-VersionCheckers', GetCurrentResourceName())
 	end)
 end)
 
