@@ -170,7 +170,7 @@ AddEventHandler("Objects:Client:ViewData", function(entity, data)
 end)
 
 AddEventHandler("Objects:Client:OpenInventory", function(entity, data)
-    Inventory.Dumbfuck:Open({
+    Inventory.Container:Open({
 		invType = 138,
 		owner = Entity(entity.entity).state.objectId,
 	})
